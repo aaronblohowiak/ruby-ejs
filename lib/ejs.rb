@@ -73,11 +73,11 @@ module EJS
         compiled_str << js_escape!(source[idx, next_match[:begin]-idx].to_s)
 
         case next_match[:name]
-        when "escape":
+        when "escape" then
           compiled_str << "',(''+#{next_match[:match]})#{escape_function},'"
-        when "interpolate":
+        when "interpolate" then
           compiled_str << "', #{next_match[:match]},'"
-        when "evaluate":
+        when "evaluate" then
           compiled_str << "'); #{next_match[:match]}; __p.push('"
         end
  
